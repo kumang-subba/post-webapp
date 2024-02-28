@@ -1,30 +1,39 @@
-# React + TypeScript + Vite
+# Post Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Home](home.png)
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Post is a visually stunning blog website that provides users with a platform to share their thoughts and ideas. Built with React and Vite, the app stands out with its captivating animations powered by Framer Motion. Post integrates seamlessly with AWS services, utilizing S3 for image uploads and RDS with MySQL in the backend. Editor.js is used to enhance the writing experience, allowing users to create stylish and engaging posts.
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+![createPostPreview](create-post.png)
 
-- Configure the top-level `parserOptions` property like this:
+- Visually Stunning Animations using Framer Motion
+- AWS Integration: Image upload using presigned url from backend.
+- Database Management: Backend uses AWS Rds mysql
+- Editor.js for Stylish Posts: A user-friendly interface for creating visually appealing content.
+
+## Tech Stack
+
+Frontend
+
+[![Frontend](https://skillicons.dev/icons?i=js,ts,html,css,tailwind,react,vite)](https://skillicons.dev) framer-motion and react-router-dom
+
+Backend (<a href="https://github.com/kumang-subba/post-webapp-api">Link here</a>)
+
+[![Backend](https://skillicons.dev/icons?i=js,nodejs,express,aws,mysql)](https://skillicons.dev)
+
+## Getting started
+
+1. Clone the repository: `git clone https://github.com/kumang-subba/post-webapp.git`
+2. Navigate to the project directory
+3. Install dependencies: `npm install`
+4. Start the development server: `npm run dev`
+
+.env sample
 
 ```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+VITE_API_URL=
 ```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
