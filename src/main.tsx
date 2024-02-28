@@ -9,7 +9,7 @@ import { PostsProvider } from "./providers/PostsContextProvider.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.DEV ? "/" : "/post-webapp/"}>
       <AuthProvider>
         <LocationProvider>
           <PostsProvider>
