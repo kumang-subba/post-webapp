@@ -1,5 +1,8 @@
 # Post Web App
 
+## Preview link
+https://kumang-subba.github.io/post-webapp/
+
 ![Home](home.png)
 
 ## Overview
