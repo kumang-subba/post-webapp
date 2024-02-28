@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: Raleway;
+  }
+  h1 {
+    @apply text-3xl;
+  }
+  h2 {
+    @apply text-2xl;
+  }
+  h3 {
+    @apply text-xl;
+  }
+  h4 {
+    @apply text-lg;
+  }
+}
+@layer utilities {
+  .scrollbar::-webkit-scrollbar {
+    width: 5px;
+    height: 20px;
+    padding-right: 2px;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    @apply bg-gray-200 dark:bg-slate-600;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    border-radius: 100vh;
+    margin-top: 0.5rem;
+    @apply bg-gray-400 dark:bg-slate-400;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-500 dark:bg-slate-500;
+  }
+}
+.ce-block__content,
+.ce-toolbar__content {
+  max-width: unset;
+}
+
+.ce-toolbar__actions {
+  @apply !right-0;
+}
+
+.dark .ce-block--selected .ce-block__content,
+.dark .ce-inline-toolbar,
+.dark .codex-editor--narrow .ce-toolbox,
+.dark .ce-conversion-toolbar,
+.dark .ce-settings,
+.dark .ce-settings__button,
+.dark .ce-toolbar__settings-btn,
+.dark .cdx-button,
+.dark .ce-popover,
+.dark .ce-toolbar__plus:hover {
+  color: #e5e7eb;
+  background: #1e293b;
+  border-color: #334155;
+}
+.dark .ce-popover-item__title {
+  color: #e5e7eb;
+}
+.dark .ce-popover-item__icon {
+  background: #0f172a;
+  color: #e5e7eb;
+}
+.dark .ce-popover-item:hover {
+  background: #334155;
+}
+
+.dark .ce-inline-tool,
+.dark .ce-conversion-toolbar__label,
+.dark .ce-toolbox__button,
+.dark .cdx-settings-button,
+.dark .ce-toolbar__plus {
+  color: inherit;
+}
+
+.dark .ce-popover__item-icon,
+.dark .ce-conversion-tool__icon {
+  background-color: #334155;
+  box-shadow: none;
+}
+
+.dark .cdx-search-field {
+  background-color: #334155;
+  color: inherit;
+}
+
+.dark ::selection {
+  background: #334155;
+}
+
+.dark .cdx-settings-button:hover,
+.dark .ce-settings__button:hover,
+.dark .ce-toolbox__button--active,
+.dark .ce-toolbox__button:hover,
+.dark .cdx-button:hover,
+.dark .ce-inline-toolbar__dropdown:hover,
+.dark .ce-inline-tool:hover,
+.dark .ce-popover__item:hover,
+.dark .ce-conversion-tool:hover,
+.dark .ce-toolbar__settings-btn:hover {
+  background-color: #0f172a;
+  color: inherit;
+}
+
+.dark .cdx-notify--error {
+  background: rgb(123, 255, 0) !important;
+}
+
+.dark .cdx-notify__cross::after,
+.dark .cdx-notify__cross::before {
+  background: white;
+}
+
+.codex-editor__redactor {
+  padding-bottom: 0 !important;
+}
