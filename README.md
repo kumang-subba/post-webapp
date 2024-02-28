@@ -19,7 +19,7 @@ Post is a visually stunning blog website that provides users with a platform to 
 
 Frontend
 
-[![Frontend](https://skillicons.dev/icons?i=js,ts,html,css,tailwind,react,vite)](https://skillicons.dev) framer-motion and react-router-dom
+[![Frontend](https://skillicons.dev/icons?i=js,ts,html,css,tailwind,react,vite)](https://skillicons.dev)  <img src="https://framerusercontent.com/images/48ha9ZR9oZQGQ6gZ8YUfElP3T0A.png" width="50" height="50" alt="Framer Motion Icon" /> ![react-router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 
 Backend (<a href="https://github.com/kumang-subba/post-webapp-api">Link here</a>)
 
