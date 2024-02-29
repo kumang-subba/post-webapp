@@ -1,9 +1,13 @@
-import { Dispatch, SetStateAction, createContext, useContext } from "react";
+import { createContext, useContext } from "react";
 import { Post } from "../types/postType";
 
 type PostsContextType = {
   posts: Post[];
-  setPosts: Dispatch<SetStateAction<Post[]>>;
+  currentPost: Post | null;
+  fetchAllPosts: (category: string) => void;
+  fetchSinglePost: () => void;
+  loading: boolean;
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
 };
 export const PostsContext = createContext({} as PostsContextType);
 

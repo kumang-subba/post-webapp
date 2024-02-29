@@ -1,9 +1,9 @@
+import axios from "axios";
 import { AnimatePresence, motion } from "framer-motion";
 import { LogOutIcon, SettingsIcon, User } from "lucide-react";
 import { useState } from "react";
-import { useAuthContext } from "../providers/AuthContext";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import { useAuthContext } from "../providers/AuthContext";
 
 const UserMenu = () => {
   const [open, setOpen] = useState<boolean>(false);

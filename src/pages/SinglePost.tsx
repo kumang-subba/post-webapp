@@ -1,31 +1,9 @@
-import { useParams } from "react-router-dom";
-import Post from "../components/Post";
-import { useEffect, useState } from "react";
-import { Post as PostType } from "../types/postType";
-import axios from "axios";
 import { format } from "date-fns";
+import Post from "../components/Post";
+import { usePostsContext } from "../providers/PostsContext";
 
 const SinglePost = () => {
-  const params = useParams();
-  const [currentPost, setCurrentPost] = useState<
-    PostType & {
-      created_at: string;
-      updated_at: string;
-    }
-  >();
-  useEffect(() => {
-    const fetchPost = async () => {
-      try {
-        const res = await axios.get(
-          `${import.meta.env.VITE_API_URL}/posts/${params.id}`
-        );
-        setCurrentPost(res.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchPost();
-  }, [params.id]);
+  const { currentPost } = usePostsContext();
   const categories = currentPost?.categories.split(",");
   return (
     currentPost && (

@@ -1,17 +1,16 @@
-import axios from "axios";
 import { format } from "date-fns";
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
-import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useLocationContext } from "../providers/LocationContext";
-import { Post as PostType } from "../types/postType.ts";
+import { usePostsContext } from "../providers/PostsContext.ts";
 import Post from "./Post";
 
 const SinglePostModal = () => {
   const navigate = useNavigate();
   const params = useParams();
   const { backgroundLocation, setBackgroundLocation } = useLocationContext();
+  const { posts } = usePostsContext();
   const handleOutsideClick = () => {
     document.body.style.overflow = "auto";
     if (backgroundLocation) {
@@ -19,26 +18,7 @@ const SinglePostModal = () => {
       navigate(backgroundLocation);
     }
   };
-
-  const [currentPost, setCurrentPost] = useState<
-    PostType & {
-      created_at: string;
-      updated_at: string;
-    }
-  >();
-  useEffect(() => {
-    const fetchPost = async () => {
-      try {
-        const res = await axios.get(
-          `${import.meta.env.VITE_API_URL}/posts/${params.id}`
-        );
-        setCurrentPost(res.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchPost();
-  }, [params.id]);
+  const currentPost = posts.find((post) => post.id === Number(params.id));
   const categories = currentPost?.categories.split(",");
 
   return (
@@ -50,11 +30,11 @@ const SinglePostModal = () => {
         >
           <motion.div
             className="flex w-full h-5/6 gap-5 bg-gray-200 dark:bg-slate-600 dark:shadow-slate-900 shadow-lg shadow-gray-400 rounded-lg relative"
-            layoutId={params.id}
             onClick={(e: React.MouseEvent<HTMLDivElement>) =>
               e.stopPropagation()
             }
-            transition={{ duration: 5, type: "spring", ease: "easeOut" }}
+            layoutId={params.id}
+            transition={{ duration: 0.3, type: "spring", ease: "easeOut" }}
           >
             <Post
               img={currentPost?.coverImage}

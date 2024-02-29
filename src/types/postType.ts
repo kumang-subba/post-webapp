@@ -6,4 +6,6 @@ export type Post = {
   categories: string;
   author: string;
   authorImg: string;
+  created_at: string;
+  updated_at: string;
 };

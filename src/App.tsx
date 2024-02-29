@@ -3,21 +3,27 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import Layout from "./components/Layout";
 import ModalLogin from "./components/ModalLogin";
 import ModalRegister from "./components/ModalRegister";
+import PrivateRoutes from "./components/PrivateRoutes";
 import SinglePostModal from "./components/SinglePostModal";
 import CreatePost from "./pages/CreatePost";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import Profile from "./pages/Profile";
 import Register from "./pages/Register";
 import SinglePost from "./pages/SinglePost";
 import { useLocationContext } from "./providers/LocationContext";
-import PrivateRoutes from "./components/PrivateRoutes";
-import Profile from "./pages/Profile";
+import { usePostsContext } from "./providers/PostsContext";
+import LoadingScreen from "./components/LoadingScreen";
 
 function App() {
   const location = useLocation();
   const { backgroundLocation: background } = useLocationContext();
+  const { loading } = usePostsContext();
   return (
     <div className="bg-gray-100 flex flex-col min-h-screen text-gray-900 dark:bg-slate-700 dark:text-white transition-[background-color] antialiased">
+      <AnimatePresence mode="wait">
+        {loading && <LoadingScreen />}
+      </AnimatePresence>
       <Routes
         location={background || location}
         key={background?.pathname || location.pathname}

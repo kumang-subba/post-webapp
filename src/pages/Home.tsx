@@ -1,25 +1,8 @@
-import axios from "axios";
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
 import GridPost from "../components/GridPost";
 import { usePostsContext } from "../providers/PostsContext";
 
 const Home = () => {
-  const { posts, setPosts } = usePostsContext();
-  const category = useLocation().search;
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const res = await axios.get(
-          `${import.meta.env.VITE_API_URL}/posts${category}`
-        );
-        setPosts(res.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchPosts();
-  }, [category, setPosts]);
+  const { posts } = usePostsContext();
   return (
     <main className="px-16 md:px-32 pt-24 pb-12">
       <div className="grid grid-cols-12 gap-10">
