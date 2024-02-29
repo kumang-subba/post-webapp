@@ -8,6 +8,7 @@ type PostsContextType = {
   fetchSinglePost: () => void;
   loading: boolean;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  setPosts: React.Dispatch<React.SetStateAction<Post[]>>;
 };
 export const PostsContext = createContext({} as PostsContextType);
 

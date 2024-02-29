@@ -55,6 +55,7 @@ export function PostsProvider({ children }: { children: React.ReactNode }) {
         fetchSinglePost,
         loading,
         setLoading,
+        setPosts,
       }}
     >
       {children}
