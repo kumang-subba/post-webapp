@@ -1,10 +1,10 @@
 import axios from "axios";
-import { useEffect } from "react";
+import { User } from "lucide-react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { usePostsContext } from "../providers/PostsContext";
+import { Post as RecommendedPostType } from "../types/postType";
 import EditorOutput from "./EditorOutput";
 import RecommendedPost from "./RecommendedPost";
-import { User } from "lucide-react";
 
 type PostType = {
   img: string;
@@ -26,21 +26,23 @@ const Post = ({
   updated,
   categories,
 }: PostType) => {
-  const { posts, setPosts } = usePostsContext();
+  const [recommendedPosts, setRecommendedPosts] = useState<
+    RecommendedPostType[]
+  >([]);
   useEffect(() => {
     const fetchPosts = async () => {
       try {
         const res = await axios.get(`${import.meta.env.VITE_API_URL}/posts`);
-        setPosts(res.data);
+        setRecommendedPosts(res.data);
       } catch (error) {
         console.log(error);
       }
     };
     fetchPosts();
-  }, [setPosts]);
+  }, []);
   return (
     <>
-      <div className="basis-2/3 flex flex-col overflow-y-auto scrollbar rounded-tl-md gap-2 ml-[1.25rem] mt-[1.25rem]">
+      <div className="basis-full lg:basis-2/3 flex flex-col lg:overflow-y-auto scrollbar rounded-tl-md gap-2 ml-[1.25rem] mt-[1.25rem]">
         <picture className="h-2/3 w-full basis-1/2">
           <img src={img} className="h-full w-full object-cover rounded-tl-md" />
         </picture>
@@ -75,21 +77,17 @@ const Post = ({
                 {created}
                 {updated > created ? ` - (updated) ${updated}` : ""}
               </p>
-              {}
             </div>
-            {/* <Heart className="w-8 h-8 hover:text-green-700 cursor-pointer transition-colors" />
-            <ThumbsDown className="w-8 h-8 hover:text-rose-700 cursor-pointer transition-colors" />
-            <ArrowUpRightFromSquare className="w-8 h-8 hover:text-indigo-700 cursor-pointer transition-colors" /> */}
           </div>
           <EditorOutput content={content} />
 
           <div className="flex gap-2 mt-5"></div>
         </div>
       </div>
-      <div className="flex-1 bg-gray-300 p-5 dark:bg-slate-800 rounded-r-lg flex flex-col">
+      <div className="lg:flex-1 bg-gray-300 p-5 dark:bg-slate-800 lg:rounded-r-lg flex flex-col">
         <h2 className="text-3xl">You may also enjoy</h2>
         <div className="py-2 gap-2 flex flex-col overflow-clip">
-          {posts.map(({ id, title, coverImage }) => (
+          {recommendedPosts.map(({ id, title, coverImage }) => (
             <RecommendedPost key={id} title={title} img={coverImage} id={id} />
           ))}
         </div>

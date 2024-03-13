@@ -20,16 +20,15 @@ const SinglePostModal = () => {
   };
   const currentPost = posts.find((post) => post.id === Number(params.id));
   const categories = currentPost?.categories.split(",");
-
   return (
     <AnimatePresence>
       {currentPost && (
         <motion.div
-          className="fixed inset-0 z-50 flex items-center px-16 md:px-32"
+          className="fixed inset-0 z-50 flex items-center px-8 md:px-16 lg:px-32 "
           onClick={handleOutsideClick}
         >
           <motion.div
-            className="flex w-full h-5/6 gap-5 bg-gray-200 dark:bg-slate-600 dark:shadow-slate-900 shadow-lg shadow-gray-400 rounded-lg relative"
+            className="flex flex-col lg:flex-row w-full h-5/6 gap-5 overflow-y-auto lg:overflow-y-hidden scrollbar bg-gray-200 dark:bg-slate-600 dark:shadow-slate-900 shadow-lg shadow-gray-400 rounded-lg relative"
             onClick={(e: React.MouseEvent<HTMLDivElement>) =>
               e.stopPropagation()
             }

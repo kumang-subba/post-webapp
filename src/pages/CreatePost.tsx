@@ -2,7 +2,7 @@ import CreatePostForm from "../components/CreatePostForm";
 
 const CreatePost = () => {
   return (
-    <main className="flex-1 flex flex-col mx-auto w-1/2 h-full gap-6 px-16 md:px-32 pt-24 py-5">
+    <main className="flex-1 flex flex-col mx-auto w-1/2 h-full gap-6 px-8 md:px-16 lg:px-32 pt-24 py-5">
       <h1 className="text-6xl font-semibold">Ready to Inspire?</h1>
       <h2 className="text-4xl">
         Create a <span className="text-green-600">Post</span>

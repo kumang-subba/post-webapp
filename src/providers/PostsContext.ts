@@ -3,9 +3,6 @@ import { Post } from "../types/postType";
 
 type PostsContextType = {
   posts: Post[];
-  currentPost: Post | null;
-  fetchAllPosts: (category: string) => void;
-  fetchSinglePost: () => void;
   loading: boolean;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   setPosts: React.Dispatch<React.SetStateAction<Post[]>>;

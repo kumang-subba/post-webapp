@@ -26,9 +26,9 @@ const pathVariants = {
 function LogoText() {
   return (
     <motion.svg
-      width={"100"}
+      width={"60"}
       height={"100"}
-      viewBox="-100 -100 200 200"
+      viewBox="-70 -100 100 200"
       variants={svgVariants}
       initial="hidden"
       animate="visible"

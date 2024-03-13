@@ -9,6 +9,7 @@ import Logo from "./Logo";
 import LogoText from "./LogoText";
 import ThemeSwitcher from "./ThemeSwitcher";
 import UserMenu from "./UserMenu";
+import MobileMenu from "./MobileMenu";
 
 const navVariants = {
   hidden: {
@@ -58,16 +59,18 @@ const NavBar = () => {
   return (
     <header
       className={cn(
-        "flex items-center fixed w-full px-16 md:px-32 z-50 transition-all bg-gradient-to-b from-gray-50/75 to-gray-100 dark:from-slate-800/75 dark:to-slate-700",
+        "flex items-center fixed w-full px-8 md:px-16 lg:px-32 z-50 transition-all bg-gradient-to-b from-gray-50/75 to-gray-100 dark:from-slate-800/75 dark:to-slate-700",
         isTop ? "h-20" : "h-16"
       )}
     >
-      <Link to="/" className="flex cursor-pointer">
+      <MobileMenu />
+      <Link to="/" className="ml-10 md:ml-0 flex cursor-pointer">
         <Logo />
         <LogoText />
       </Link>
+      <div className="flex-1 lg:flex-grow-0" />
       <motion.nav
-        className="flex gap-4 px-5 font-medium text-xl tracking-wider basis-full"
+        className="gap-2 lg:gap-4 px-5 font-medium text-lg lg:text-xl lg:tracking-wider basis-full hidden md:flex"
         variants={navVariants}
         initial="hidden"
         animate="visible"
@@ -131,9 +134,9 @@ const NavBar = () => {
           <Link
             to="/login"
             onClick={() => setBackgroundLocation(location)}
-            className="group relative px-4 py-1 text-lg font-medium transition-colors duration-[400ms] hover:text-green-600 mr-2 flex gap-1"
+            className="group relative lg:px-2 py-1 text-base lg:text-lg font-medium transition-colors duration-[400ms] hover:text-green-600 mr-2 flex gap-1 justify-center items-center"
           >
-            <UserRoundIcon />
+            <UserRoundIcon className="w-4 h-4 lg:w-6 lg:h-6" />
             <span>Login</span>
             <span className="absolute left-0 top-0 h-[2px] w-0 bg-green-600 transition-all duration-100 group-hover:w-full" />
             <span className="absolute right-0 top-0 h-0 w-[2px] bg-green-600 transition-all delay-100 duration-100 group-hover:h-full" />

@@ -40,7 +40,7 @@ const GridPost = ({
     <motion.div
       layoutId={id.toString()}
       className={cn(
-        "flex flex-col gap-2  bg-gray-200  dark:bg-slate-600 dark:shadow-slate-900 shadow-lg shadow-gray-400 rounded-lg cursor-pointer group max-h-96 overflow-clip",
+        "flex flex-col gap-2 bg-gray-200  dark:bg-slate-600 dark:shadow-slate-900 shadow-lg shadow-gray-400 rounded-lg cursor-pointer group max-h-96 overflow-clip",
         extraClasses
       )}
       onClick={() => handleNavigation(id)}
