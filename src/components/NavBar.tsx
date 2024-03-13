@@ -59,7 +59,7 @@ const NavBar = () => {
   return (
     <header
       className={cn(
-        "flex items-center fixed w-full px-8 md:px-16 lg:px-32 z-50 transition-all bg-gradient-to-b from-gray-50/75 to-gray-100 dark:from-slate-800/75 dark:to-slate-700",
+        "flex items-center fixed w-full px-8 md:px-16 xl:px-32 z-50 transition-all bg-gradient-to-b from-gray-50/75 to-gray-100 dark:from-slate-800/75 dark:to-slate-700",
         isTop ? "h-20" : "h-16"
       )}
     >
@@ -68,9 +68,9 @@ const NavBar = () => {
         <Logo />
         <LogoText />
       </Link>
-      <div className="flex-1 lg:flex-grow-0" />
+      <div className="flex-1 xl:flex-grow-0" />
       <motion.nav
-        className="gap-2 lg:gap-4 px-5 font-medium text-lg lg:text-xl lg:tracking-wider basis-full hidden md:flex"
+        className="gap-2 xl:gap-4 px-5 font-medium text-base lg:text-lg xl:text-xl xl:tracking-wider basis-full hidden md:flex"
         variants={navVariants}
         initial="hidden"
         animate="visible"
@@ -120,10 +120,10 @@ const NavBar = () => {
         <>
           <Link
             to="create"
-            className="group relative bg-green-400 hover:bg-green-300 dark:bg-green-800 dark:hover:bg-green-900 px-4 py-1 text-lg font-medium transition-colors duration-[400ms] mr-2 flex gap-1"
+            className="group relative bg-green-400 hover:bg-green-300 dark:bg-green-800 dark:hover:bg-green-900 px-2 lg:px-4 py-1 text-lg font-medium transition-colors duration-[400ms] mr-2 flex gap-1"
           >
             <PenToolIcon />
-            <span>Write</span>
+            <span className="hidden lg:block">Write</span>
           </Link>
         </>
       )}
@@ -134,9 +134,9 @@ const NavBar = () => {
           <Link
             to="/login"
             onClick={() => setBackgroundLocation(location)}
-            className="group relative lg:px-2 py-1 text-base lg:text-lg font-medium transition-colors duration-[400ms] hover:text-green-600 mr-2 flex gap-1 justify-center items-center"
+            className="group relative xl:px-2 py-1 text-base xl:text-lg font-medium transition-colors duration-[400ms] hover:text-green-600 mr-2 flex gap-1 justify-center items-center"
           >
-            <UserRoundIcon className="w-4 h-4 lg:w-6 lg:h-6" />
+            <UserRoundIcon className="w-4 h-4 xl:w-6 xl:h-6" />
             <span>Login</span>
             <span className="absolute left-0 top-0 h-[2px] w-0 bg-green-600 transition-all duration-100 group-hover:w-full" />
             <span className="absolute right-0 top-0 h-0 w-[2px] bg-green-600 transition-all delay-100 duration-100 group-hover:h-full" />

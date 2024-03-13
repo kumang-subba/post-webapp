@@ -28,9 +28,9 @@ const SinglePost = () => {
   }, [postId]);
   return (
     currentPost && (
-      <main className="px-8 md:px-16 lg:px-32 pt-24 py-5 flex items-center justify-center">
+      <main className="px-4 md:px-16 xl:px-32 pt-24 py-5 flex items-center justify-center">
         <div
-          className="flex w-full gap-5 bg-gray-200 dark:bg-slate-600 dark:shadow-slate-900 shadow-lg shadow-gray-400 rounded-lg h-[83.3333vh]"
+          className="flex flex-col lg:flex-row w-full overflow-y-auto lg:overflow-y-hidden gap-5 bg-gray-200 dark:bg-slate-600 dark:shadow-slate-900 shadow-lg shadow-gray-400 rounded-lg h-[83.3333vh]"
           onClick={(e: React.MouseEvent<HTMLDivElement>) => e.stopPropagation()}
         >
           <Post

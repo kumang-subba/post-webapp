@@ -42,12 +42,17 @@ const Post = ({
   }, []);
   return (
     <>
-      <div className="basis-full lg:basis-2/3 flex flex-col lg:overflow-y-auto scrollbar rounded-tl-md gap-2 ml-[1.25rem] mt-[1.25rem]">
-        <picture className="h-2/3 w-full basis-1/2">
-          <img src={img} className="h-full w-full object-cover rounded-tl-md" />
+      <div className="basis-full lg:basis-2/3 flex flex-col lg:overflow-y-auto scrollbar rounded-tl-md rounded-tr-md md:rounded-tr-none gap-2 ml-0 mt-0 lg:ml-[1.25rem] lg:mt-[1.25rem]">
+        <picture className="h-2/3 w-full md:basis-1/2">
+          <img
+            src={img}
+            className="h-full w-full object-cover rounded-tl-md rounded-tr-md md:rounded-tr-none"
+          />
         </picture>
-        <div className="flex flex-col gap-2 basis-3/4">
-          <h1 className="text-6xl font-bold tracking-wide">{title}</h1>
+        <div className="flex flex-col gap-2 basis-3/4 px-2 lg:px-0">
+          <h1 className="text-base md:text-3xl lg:text-6xl font-bold tracking-wide">
+            {title}
+          </h1>
           <div className="flex">
             {categories.map((c, index) => (
               <Link

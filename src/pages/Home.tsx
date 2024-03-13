@@ -22,8 +22,8 @@ const Home = () => {
     fetchData();
   }, [category]);
   return (
-    <main className="px-8 md:px-16 lg:px-32 pt-24 pb-12">
-      <div className="grid grid-cols-12 gap-10">
+    <main className="px-4 md:px-16 xl:px-32 pt-24 pb-12">
+      <div className="grid grid-cols-6 gap-10">
         {posts.map((post, index) => {
           const categories = post.categories.split(",");
           return (
@@ -38,8 +38,8 @@ const Home = () => {
               authorImg={post.authorImg}
               extraClasses={
                 index % 4 === 0 || (index + 1) % 4 === 0
-                  ? "col-span-12 lg:col-span-8"
-                  : "col-span-12 lg:col-span-4"
+                  ? "col-span-6 lg:col-span-4"
+                  : "col-span-6 lg:col-span-2"
               }
             />
           );

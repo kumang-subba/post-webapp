@@ -26,7 +26,7 @@ const UserMenu = () => {
       onMouseLeave={() => setOpen(false)}
       className="relative px-4 py-1 text-lg font-medium transition-colors duration-[400ms] hover:text-green-600 mr-4 flex gap-1 cursor-pointer"
     >
-      <span className="flex gap-2">
+      <div className="flex lg:gap-2 w-8 lg:w-full">
         {currentUser?.image ? (
           <img
             src={currentUser?.image}
@@ -35,8 +35,8 @@ const UserMenu = () => {
         ) : (
           <User />
         )}
-        {currentUser?.username}
-      </span>
+        <span className="hidden lg:block">{currentUser?.username}</span>
+      </div>
       <AnimatePresence>
         {open && (
           <motion.div

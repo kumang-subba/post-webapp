@@ -13,7 +13,7 @@ const Path = (props) => (
 export const MobileMenuToggle = ({ toggle }: { toggle: () => void }) => (
   <button
     onClick={toggle}
-    className="absolute top-[18px] left-[29px] w-[50px] h-[50px] rounded-full"
+    className="absolute top-[18px] left-[29px] w-[50px] h-[50px] rounded-full pointer-events-auto"
   >
     <svg width="23" height="23" viewBox="0 0 23 23">
       <Path

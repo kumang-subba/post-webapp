@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { cn } from "../lib/utils";
 
 const variants = {
   open: {
@@ -25,17 +26,27 @@ const itemVariants = {
     },
   },
 };
-export const MobileSideBar = () => {
+export const MobileSideBar = ({
+  isOpen,
+  toggleOpen,
+}: {
+  isOpen: boolean;
+  toggleOpen: () => void;
+}) => {
   return (
     <motion.ul
       variants={variants}
-      className="p-20 absolute top-[100px] w-[230px]"
+      className={cn(
+        "p-20  top-[100px] w-[230px] pointer-events-auto",
+        isOpen ? "absolute" : "hidden"
+      )}
     >
       <motion.li
         variants={itemVariants}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         className="mb-6"
+        onClick={() => toggleOpen()}
       >
         <Link
           to="/?category=technology"
@@ -50,6 +61,7 @@ export const MobileSideBar = () => {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         className="mb-6"
+        onClick={() => toggleOpen()}
       >
         <Link
           to="/?category=gaming"
@@ -64,6 +76,7 @@ export const MobileSideBar = () => {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         className="mb-6"
+        onClick={() => toggleOpen()}
       >
         <Link
           to="/?category=food"
@@ -78,6 +91,7 @@ export const MobileSideBar = () => {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         className="mb-6"
+        onClick={() => toggleOpen()}
       >
         <Link
           to="/?category=science"
@@ -91,6 +105,7 @@ export const MobileSideBar = () => {
         variants={itemVariants}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
+        onClick={() => toggleOpen()}
       >
         <Link
           to="/?category=fitness"

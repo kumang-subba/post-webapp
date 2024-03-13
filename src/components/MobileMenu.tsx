@@ -28,20 +28,28 @@ const MobileMenu = () => {
   const { height } = useDimensions(containerRef);
 
   return (
-    <motion.nav
-      className="fixed top-0 bottom-0 left-0 w-[300px] md:hidden -z-10"
-      initial={false}
-      animate={isOpen ? "open" : "closed"}
-      custom={height}
-      ref={containerRef}
-    >
-      <motion.div
-        className="absolute inset-0 w-[300px] bg-gray-200 dark:bg-slate-600"
-        variants={sidebar}
-      />
-      <MobileSideBar />
-      <MobileMenuToggle toggle={() => toggleOpen()} />
-    </motion.nav>
+    <>
+      {isOpen && (
+        <div
+          className="bg-slate-900/20 fixed inset-0 -z-50 flex"
+          onClick={() => toggleOpen()}
+        ></div>
+      )}
+      <motion.nav
+        className="fixed top-0 bottom-0 left-0 w-[300px] md:hidden -z-10 pointer-events-none"
+        initial={false}
+        animate={isOpen ? "open" : "closed"}
+        custom={height}
+        ref={containerRef}
+      >
+        <motion.div
+          className="absolute inset-0 w-[300px] bg-gray-200 dark:bg-slate-600 -z-[999]"
+          variants={sidebar}
+        />
+        <MobileSideBar isOpen={isOpen} toggleOpen={toggleOpen} />
+        <MobileMenuToggle toggle={() => toggleOpen()} />
+      </motion.nav>
+    </>
   );
 };
 

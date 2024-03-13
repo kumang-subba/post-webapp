@@ -24,7 +24,7 @@ const SinglePostModal = () => {
     <AnimatePresence>
       {currentPost && (
         <motion.div
-          className="fixed inset-0 z-50 flex items-center px-8 md:px-16 lg:px-32 "
+          className="fixed inset-0 z-50 flex items-center px-4 md:px-16 lg:px-32 "
           onClick={handleOutsideClick}
         >
           <motion.div
